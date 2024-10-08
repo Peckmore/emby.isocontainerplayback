@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>IsoContainerPlayback</RootNamespace>
+    <Description>ISO Container Playback</Description>
+    <PackageTags>emby;plugin;pms;media;server;iso;uhd;4k;bluray;dvd</PackageTags>
+    <Authors>Simon Peckmore</Authors>
+    <Version>0.4</Version>
+  </PropertyGroup>
+	
+  <ItemGroup>
+	<EmbeddedResource Include="ThumbImage.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="MediaBrowser.Common" Version="4.8.5" />
+    <PackageReference Include="MediaBrowser.Server.Core" Version="4.8.5" />
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+	<PackageReference Include="System.Security.AccessControl" Version="6.0.1" />
+	<PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	<Exec Command="copy $(TargetPath) %AppData%\Emby-Server\programdata\plugins\" />
+  </Target>
+
+</Project>
