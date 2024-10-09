@@ -16,13 +16,13 @@ namespace IsoContainerPlayback.Formats.Dvd
 
         #region Construction
 
-        /// <summary>Initializes a new instance of the <see cref="DvdIsoContainerService" />.</summary>
+        /// <summary>Initializes a new instance of the <see cref="DvdIsoContainerService" /> service.</summary>
         /// <param name="logManager">The log manager.</param>
         public DvdIsoContainerService(ILogManager logManager)
         {
             _logger = logManager.GetLogger(nameof(DvdIsoContainerService));
 
-            _logger.Info($"{nameof(DvdIsoContainerService)} is starting...", 0);
+            _logger.Info($"{nameof(DvdIsoContainerService)} is started.", 0);
         }
 
         #endregion

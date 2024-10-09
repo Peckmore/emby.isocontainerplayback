@@ -5,8 +5,8 @@ using File = System.IO.File;
 namespace IsoContainerPlayback.Formats.Dvd
 {
     /// <summary>
-    /// An <see cref="IsoStream"/> implementation which represents a video stored on a DVD ISO. The video 
-    /// is defined by a title number, and may be spread across multiple files within the ISO.
+    /// An <see cref="IsoStream"/> implementation which represents a video stored on a DVD ISO. The video is defined by a title
+    /// number, and may be spread across multiple files within the ISO.
     /// </summary>
     public class DvdIsoStream : IsoStream
     {
@@ -24,14 +24,14 @@ namespace IsoContainerPlayback.Formats.Dvd
         /// </summary>
         /// <param name="isoPath">The path on disk to the DVD ISO file to open.</param>
         /// <param name="title">The value of the title to be streamed from the ISO (e.g., VTS_[title]_1.VOB).</param>
-        /// <exception cref="IOException">Thrown if the requested ISO cannot be found or accessed, or if the requested title
-        /// does not exist on the specified ISO.</exception>
+        /// <exception cref="IOException">Thrown if the requested ISO cannot be found or accessed, or if the requested title does
+        /// not exist on the specified ISO.</exception>
         public DvdIsoStream(string isoPath, int title)
         {
             // First we check whether the ISO specified exists and is accessible.
             if (!File.Exists(isoPath))
             {
-                throw new IOException($"The requested ISO file does not exist or could not be accessed.\n\nPath: {isoPath}");
+                throw Exceptions.IsoDoesNotExist(isoPath);
             }
 
             // We've found the ISO, so let's create a stream to it.
@@ -40,12 +40,11 @@ namespace IsoContainerPlayback.Formats.Dvd
             // Now we'll create our UdfReader for the ISO.
             _dvdReader = new UdfReader(_dvdStream);
 
-            // Now we'll check whether the specified playlist exists on the ISO, and if it does we'll
-            // grab it.
+            // We'll check whether the specified playlist exists on the ISO, and if it does we'll grab it.
             var vobPath = GenerateVobPath(title, 1);
             if (!_dvdReader.FileExists(vobPath))
             {
-                throw new IOException($"The requested video file does not exist on the specified ISO.\n\nVideo: {vobPath}");
+                throw Exceptions.IsoVideoFileDoesNotExist(vobPath);
             }
 
             // Now we'll loop through all matching VOB files, starting at "01", and add them to our list.
@@ -54,7 +53,7 @@ namespace IsoContainerPlayback.Formats.Dvd
                 // Generate the VOB path.
                 vobPath = GenerateVobPath(title, x);
 
-                // Now check the VOB exists and add it to our list if it does.
+                // Check whether the VOB exists, and add it to our list if it does.
                 if (_dvdReader.FileExists(vobPath))
                 {
                     // Create the stream to the file on the ISO.
@@ -68,8 +67,8 @@ namespace IsoContainerPlayback.Formats.Dvd
                 }
                 else
                 {
-                    // VOBs have to be continuous and sequential, so if we haven't found a VOB, we've reached the end
-                    // of the video files for this title.
+                    // VOBs have to be continuous and sequential, so if we haven't found a VOB we've reached the end of the video
+                    // files for this title.
                     break;
                 }
             }
@@ -83,6 +82,7 @@ namespace IsoContainerPlayback.Formats.Dvd
 
         private string GenerateVobPath(int title, int part)
         {
+            // Generate the expected video file name for a VOB file, based on the title and part numbers.
             return $@"VIDEO_TS\VTS_{title:d2}_{part}.VOB";
         }
 

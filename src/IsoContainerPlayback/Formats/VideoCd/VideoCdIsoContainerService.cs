@@ -16,13 +16,13 @@ namespace IsoContainerPlayback.Formats.VideoCd
 
         #region Construction
 
-        /// <summary>Initializes a new instance of the <see cref="VideoCdIsoContainerService" />.</summary>
+        /// <summary>Initializes a new instance of the <see cref="VideoCdIsoContainerService" /> service.</summary>
         /// <param name="logManager">The log manager.</param>
         public VideoCdIsoContainerService(ILogManager logManager)
         {
             _logger = logManager.GetLogger(nameof(VideoCdIsoContainerService));
 
-            _logger.Info($"{nameof(VideoCdIsoContainerService)} is starting...", 0);
+            _logger.Info($"{nameof(VideoCdIsoContainerService)} is started.", 0);
         }
 
         #endregion

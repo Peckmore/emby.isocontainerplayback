@@ -42,7 +42,7 @@ namespace IsoContainerPlayback
         #region Properties
 
         /// <inheritdoc/>
-        public override string Description => "Allows for the playback of video stored within Blu-Ray and DVD ISO files.";
+        public override string Description => "Allows for the playback of videos stored within Blu-Ray, DVD, and VideoCD ISO files.";
         /// <inheritdoc/>
         public override Guid Id => _id;
         /// <inheritdoc/>
@@ -65,7 +65,7 @@ namespace IsoContainerPlayback
         /// <inheritdoc/>
         public override void OnUninstalling()
         {
-            _logger.Info($"{Name} plugin is getting uninstalled", 0);
+            _logger.Info($"{Name} plugin is getting uninstalled.", 0);
             base.OnUninstalling();
         }
 

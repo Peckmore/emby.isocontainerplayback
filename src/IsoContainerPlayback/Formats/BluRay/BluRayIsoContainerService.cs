@@ -16,13 +16,13 @@ namespace IsoContainerPlayback.Formats.BluRay
 
         #region Construction
 
-        /// <summary>Initializes a new instance of the <see cref="BluRayIsoContainerService" />.</summary>
+        /// <summary>Initializes a new instance of the <see cref="BluRayIsoContainerService" /> service.</summary>
         /// <param name="logManager">The log manager.</param>
         public BluRayIsoContainerService(ILogManager logManager)
         {
             _logger = logManager.GetLogger(nameof(BluRayIsoContainerService));
 
-            _logger.Info($"{nameof(BluRayIsoContainerService)} is starting...", 0);
+            _logger.Info($"{nameof(BluRayIsoContainerService)} is started.", 0);
         }
 
         #endregion

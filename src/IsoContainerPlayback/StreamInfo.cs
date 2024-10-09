@@ -40,7 +40,7 @@ namespace IsoContainerPlayback
         /// </summary>
         public long End { get; private set; }
         /// <summary>
-        /// The name of the file wrapped <see cref="System.IO.Stream"/> is accessing.
+        /// The name of the file the wrapped <see cref="System.IO.Stream"/> is accessing.
         /// </summary>
         public string Filename {  get; private set; }
         /// <summary>
