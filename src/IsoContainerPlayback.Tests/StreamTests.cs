@@ -20,9 +20,9 @@ namespace IsoContainerPlayback.Tests
             {
                 return
                 [
-                    //[new BluRayIsoStream(@"..\..\..\..\..\resources\testdata\bluray_sequential.iso", "00000.MPLS")],
-                    [new DvdIsoStream(@"..\..\..\..\..\resources\testdata\dvd.iso", 3)],
-                    [new VideoCdIsoStream(@"..\..\..\..\..\resources\testdata\videocd.iso")]
+                    //[new BluRayIsoStream(@"..\..\..\..\..\resources\test_discs\bluray.iso", "00000.MPLS")],
+                    [new DvdIsoStream(@"..\..\..\..\..\resources\test_discs\dvd.iso", 3)],
+                    [new VideoCdIsoStream(@"..\..\..\..\..\resources\test_discs\videocd.iso")]
                 ];
             }
         }
