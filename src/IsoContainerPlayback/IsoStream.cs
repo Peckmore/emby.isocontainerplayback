@@ -209,7 +209,7 @@ namespace IsoContainerPlayback
         protected override sealed void Dispose(bool disposing)
         {
             // Check we aren't already disposed.
-            if (_isDisposed)
+            if (!_isDisposed)
             {
                 // Close each of our file streams.
                 foreach (var fileStream in _fileStreams)
