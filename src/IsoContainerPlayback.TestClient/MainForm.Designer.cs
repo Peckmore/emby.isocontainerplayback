@@ -38,7 +38,7 @@
             toolStrip = new ToolStrip();
             openToolStripButton = new ToolStripButton();
             ejectToolStripButton = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripSeparator = new ToolStripSeparator();
             playToolStripButton = new ToolStripButton();
             pauseToolStripButton = new ToolStripButton();
             stopToolStripButton = new ToolStripButton();
@@ -116,10 +116,10 @@
             // 
             toolStrip.Dock = DockStyle.None;
             toolStrip.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip.Items.AddRange(new ToolStripItem[] { openToolStripButton, ejectToolStripButton, toolStripSeparator1, playToolStripButton, pauseToolStripButton, stopToolStripButton });
+            toolStrip.Items.AddRange(new ToolStripItem[] { openToolStripButton, ejectToolStripButton, toolStripSeparator, playToolStripButton, pauseToolStripButton, stopToolStripButton });
             toolStrip.Location = new Point(3, 0);
             toolStrip.Name = "toolStrip";
-            toolStrip.Size = new Size(155, 25);
+            toolStrip.Size = new Size(124, 25);
             toolStrip.TabIndex = 1;
             // 
             // openToolStripButton
@@ -143,10 +143,10 @@
             ejectToolStripButton.Text = "&Close";
             ejectToolStripButton.Click += ejectToolStripButton_Click;
             // 
-            // toolStripSeparator1
+            // toolStripSeparator
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 25);
+            toolStripSeparator.Name = "toolStripSeparator";
+            toolStripSeparator.Size = new Size(6, 25);
             // 
             // playToolStripButton
             // 
@@ -217,9 +217,7 @@
         #endregion
 
         private ToolStripContainer toolStripContainer;
-        private ToolStrip topToolStrip;
         private LibVLCSharp.WinForms.VideoView videoView;
-        private ToolStripButton playIsoToolStripButton;
         private ToolStrip toolStrip;
         private ToolStripButton openToolStripButton;
         private OpenFileDialog openFileDialog;
@@ -228,7 +226,7 @@
         private ToolStripStatusLabel positionToolStripStatusLabel;
         private ToolStripStatusLabel activeFilenameToolStripStatusLabel;
         private ToolStripButton ejectToolStripButton;
-        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator;
         private ToolStripButton playToolStripButton;
         private ToolStripButton pauseToolStripButton;
         private ToolStripButton stopToolStripButton;

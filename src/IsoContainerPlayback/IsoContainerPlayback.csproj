@@ -4,9 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>IsoContainerPlayback</RootNamespace>
     <Description>ISO Container Playback</Description>
-    <PackageTags>emby;plugin;pms;media;server;iso;uhd;4k;bluray;dvd</PackageTags>
+    <PackageTags>emby;plugin;pms;media;server;iso;uhd;4k;bluray;dvd;videocd;vcd</PackageTags>
     <Authors>Simon Peckmore</Authors>
     <Version>0.4</Version>
+    <Configurations>Debug;Release;Debug_Emby;Release_Emby</Configurations>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -21,8 +22,8 @@
 	<PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	<Exec Command="copy $(TargetPath) %AppData%\Emby-Server\programdata\plugins\" />
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$(Configuration.EndsWith('Emby'))">
+	  <Exec Command="copy $(TargetPath) %AppData%\Emby-Server\programdata\plugins\" />
   </Target>
 
 </Project>
