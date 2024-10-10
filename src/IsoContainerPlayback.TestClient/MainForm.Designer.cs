@@ -1,6 +1,6 @@
 ﻿namespace IsoContainerPlayback.TestClient
 {
-    partial class mainForm
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             toolStripContainer = new ToolStripContainer();
             statusStrip = new StatusStrip();
             statusToolStripStatusLabel = new ToolStripStatusLabel();
+            activeFilenameToolStripStatusLabel = new ToolStripStatusLabel();
             positionToolStripStatusLabel = new ToolStripStatusLabel();
             videoView = new LibVLCSharp.WinForms.VideoView();
             toolStrip = new ToolStrip();
-            openToolStripDropDownButton = new ToolStripDropDownButton();
-            openVideoCDISOToolStripMenuItem = new ToolStripMenuItem();
-            openDVDISOToolStripMenuItem = new ToolStripMenuItem();
-            openBluRayISOToolStripMenuItem = new ToolStripMenuItem();
-            playlistToolStripTextBox = new ToolStripTextBox();
-            toolStripSeparator = new ToolStripSeparator();
-            helpToolStripButton = new ToolStripButton();
+            openToolStripButton = new ToolStripButton();
+            ejectToolStripButton = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            playToolStripButton = new ToolStripButton();
+            pauseToolStripButton = new ToolStripButton();
+            stopToolStripButton = new ToolStripButton();
             openFileDialog = new OpenFileDialog();
-            activeFilenameToolStripStatusLabel = new ToolStripStatusLabel();
             toolStripContainer.BottomToolStripPanel.SuspendLayout();
             toolStripContainer.ContentPanel.SuspendLayout();
             toolStripContainer.TopToolStripPanel.SuspendLayout();
@@ -90,6 +89,12 @@
             statusToolStripStatusLabel.Size = new Size(39, 17);
             statusToolStripStatusLabel.Text = "Status";
             // 
+            // activeFilenameToolStripStatusLabel
+            // 
+            activeFilenameToolStripStatusLabel.Name = "activeFilenameToolStripStatusLabel";
+            activeFilenameToolStripStatusLabel.Size = new Size(88, 17);
+            activeFilenameToolStripStatusLabel.Text = "ActiveFilename";
+            // 
             // positionToolStripStatusLabel
             // 
             positionToolStripStatusLabel.Name = "positionToolStripStatusLabel";
@@ -110,63 +115,71 @@
             // toolStrip
             // 
             toolStrip.Dock = DockStyle.None;
-            toolStrip.Items.AddRange(new ToolStripItem[] { openToolStripDropDownButton, playlistToolStripTextBox, toolStripSeparator, helpToolStripButton });
+            toolStrip.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip.Items.AddRange(new ToolStripItem[] { openToolStripButton, ejectToolStripButton, toolStripSeparator1, playToolStripButton, pauseToolStripButton, stopToolStripButton });
             toolStrip.Location = new Point(3, 0);
             toolStrip.Name = "toolStrip";
-            toolStrip.Size = new Size(172, 25);
+            toolStrip.Size = new Size(155, 25);
             toolStrip.TabIndex = 1;
             // 
-            // openToolStripDropDownButton
+            // openToolStripButton
             // 
-            openToolStripDropDownButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            openToolStripDropDownButton.DropDownItems.AddRange(new ToolStripItem[] { openVideoCDISOToolStripMenuItem, openDVDISOToolStripMenuItem, openBluRayISOToolStripMenuItem });
-            openToolStripDropDownButton.Image = (Image)resources.GetObject("openToolStripDropDownButton.Image");
-            openToolStripDropDownButton.ImageTransparentColor = Color.Magenta;
-            openToolStripDropDownButton.Name = "openToolStripDropDownButton";
-            openToolStripDropDownButton.Size = new Size(29, 22);
-            openToolStripDropDownButton.Text = "&Open";
+            openToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            openToolStripButton.Image = (Image)resources.GetObject("openToolStripButton.Image");
+            openToolStripButton.ImageTransparentColor = Color.Magenta;
+            openToolStripButton.Name = "openToolStripButton";
+            openToolStripButton.Size = new Size(23, 22);
+            openToolStripButton.Text = "&Open";
+            openToolStripButton.Click += openToolStripButton_Click;
             // 
-            // openVideoCDISOToolStripMenuItem
+            // ejectToolStripButton
             // 
-            openVideoCDISOToolStripMenuItem.Name = "openVideoCDISOToolStripMenuItem";
-            openVideoCDISOToolStripMenuItem.Size = new Size(182, 22);
-            openVideoCDISOToolStripMenuItem.Text = "Open VideoCD ISO...";
-            openVideoCDISOToolStripMenuItem.Click += openVideoCDISOToolStripMenuItem_Click;
+            ejectToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ejectToolStripButton.Enabled = false;
+            ejectToolStripButton.Image = (Image)resources.GetObject("ejectToolStripButton.Image");
+            ejectToolStripButton.ImageTransparentColor = Color.Magenta;
+            ejectToolStripButton.Name = "ejectToolStripButton";
+            ejectToolStripButton.Size = new Size(23, 22);
+            ejectToolStripButton.Text = "&Close";
+            ejectToolStripButton.Click += ejectToolStripButton_Click;
             // 
-            // openDVDISOToolStripMenuItem
+            // toolStripSeparator1
             // 
-            openDVDISOToolStripMenuItem.Name = "openDVDISOToolStripMenuItem";
-            openDVDISOToolStripMenuItem.Size = new Size(182, 22);
-            openDVDISOToolStripMenuItem.Text = "Open DVD ISO...";
-            openDVDISOToolStripMenuItem.Click += openDVDISOToolStripMenuItem_Click;
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
             // 
-            // openBluRayISOToolStripMenuItem
+            // playToolStripButton
             // 
-            openBluRayISOToolStripMenuItem.Name = "openBluRayISOToolStripMenuItem";
-            openBluRayISOToolStripMenuItem.Size = new Size(182, 22);
-            openBluRayISOToolStripMenuItem.Text = "Open BluRay ISO...";
-            openBluRayISOToolStripMenuItem.Click += openBluRayISOToolStripMenuItem_Click;
+            playToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            playToolStripButton.Enabled = false;
+            playToolStripButton.Image = (Image)resources.GetObject("playToolStripButton.Image");
+            playToolStripButton.ImageTransparentColor = Color.Magenta;
+            playToolStripButton.Name = "playToolStripButton";
+            playToolStripButton.Size = new Size(23, 22);
+            playToolStripButton.Text = "&Play";
+            playToolStripButton.Click += playToolStripButton_Click;
             // 
-            // playlistToolStripTextBox
+            // pauseToolStripButton
             // 
-            playlistToolStripTextBox.Name = "playlistToolStripTextBox";
-            playlistToolStripTextBox.Size = new Size(100, 25);
-            playlistToolStripTextBox.Text = "00000.MPLS";
+            pauseToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            pauseToolStripButton.Enabled = false;
+            pauseToolStripButton.Image = (Image)resources.GetObject("pauseToolStripButton.Image");
+            pauseToolStripButton.ImageTransparentColor = Color.Magenta;
+            pauseToolStripButton.Name = "pauseToolStripButton";
+            pauseToolStripButton.Size = new Size(23, 22);
+            pauseToolStripButton.Text = "P&ause";
+            pauseToolStripButton.Click += pauseToolStripButton_Click;
             // 
-            // toolStripSeparator
+            // stopToolStripButton
             // 
-            toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(6, 25);
-            // 
-            // helpToolStripButton
-            // 
-            helpToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            helpToolStripButton.Enabled = false;
-            helpToolStripButton.Image = (Image)resources.GetObject("helpToolStripButton.Image");
-            helpToolStripButton.ImageTransparentColor = Color.Magenta;
-            helpToolStripButton.Name = "helpToolStripButton";
-            helpToolStripButton.Size = new Size(23, 22);
-            helpToolStripButton.Text = "He&lp";
+            stopToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            stopToolStripButton.Enabled = false;
+            stopToolStripButton.Image = (Image)resources.GetObject("stopToolStripButton.Image");
+            stopToolStripButton.ImageTransparentColor = Color.Magenta;
+            stopToolStripButton.Name = "stopToolStripButton";
+            stopToolStripButton.Size = new Size(23, 22);
+            stopToolStripButton.Text = "&Stop";
+            stopToolStripButton.Click += stopToolStripButton_Click;
             // 
             // openFileDialog
             // 
@@ -177,19 +190,14 @@
             openFileDialog.ShowPinnedPlaces = false;
             openFileDialog.SupportMultiDottedExtensions = true;
             // 
-            // activeFilenameToolStripStatusLabel
-            // 
-            activeFilenameToolStripStatusLabel.Name = "activeFilenameToolStripStatusLabel";
-            activeFilenameToolStripStatusLabel.Size = new Size(88, 17);
-            activeFilenameToolStripStatusLabel.Text = "ActiveFilename";
-            // 
-            // mainForm
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(toolStripContainer);
-            Name = "mainForm";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
             toolStripContainer.BottomToolStripPanel.PerformLayout();
@@ -213,17 +221,16 @@
         private LibVLCSharp.WinForms.VideoView videoView;
         private ToolStripButton playIsoToolStripButton;
         private ToolStrip toolStrip;
-        private ToolStripDropDownButton openToolStripDropDownButton;
-        private ToolStripSeparator toolStripSeparator;
-        private ToolStripButton helpToolStripButton;
+        private ToolStripButton openToolStripButton;
         private OpenFileDialog openFileDialog;
-        private ToolStripTextBox playlistToolStripTextBox;
         private StatusStrip statusStrip;
         private ToolStripStatusLabel statusToolStripStatusLabel;
-        private ToolStripMenuItem openDVDISOToolStripMenuItem;
-        private ToolStripMenuItem openBluRayISOToolStripMenuItem;
         private ToolStripStatusLabel positionToolStripStatusLabel;
-        private ToolStripMenuItem openVideoCDISOToolStripMenuItem;
         private ToolStripStatusLabel activeFilenameToolStripStatusLabel;
+        private ToolStripButton ejectToolStripButton;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton playToolStripButton;
+        private ToolStripButton pauseToolStripButton;
+        private ToolStripButton stopToolStripButton;
     }
 }

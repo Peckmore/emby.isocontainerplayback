@@ -9,7 +9,7 @@ namespace IsoContainerPlayback.TestClient
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new mainForm());
+            Application.Run(new MainForm());
         }
     }
 }
