@@ -36,7 +36,7 @@ If the video is found on the ISO it should begin to play, as shown below:
 
 ![IsoContainerPlayback.TestClient](resources/images/testclient.png)
 
-This demonstrates that `IsoStream` should be usable to play a video from within an ISO.
+This demonstrates that `IsoStream` could possibly be usable to play a video from within an ISO.
 
 ### IsoContainPlayback.Tests
 A series of tests to try and validate that the `IsoStream` implementations function correctly.
