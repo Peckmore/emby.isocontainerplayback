@@ -1,4 +1,5 @@
 ﻿using DiscUtils.Udf;
+using MediaBrowser.Controller.Net;
 using MediaBrowser.Model.Logging;
 using MediaBrowser.Model.Services;
 using System;
@@ -11,7 +12,7 @@ namespace IsoContainerPlayback
     /// <summary>
     /// Represents the service that handles calls to the API endpoints.
     /// </summary>
-    public class IsoContainerPlaybackService : IService
+    public class IsoContainerPlaybackService : IService, IHasResultFactory
     {
         #region Fields
 
@@ -29,6 +30,15 @@ namespace IsoContainerPlayback
 
             _logger.Info($"{nameof(IsoContainerPlaybackService)} is started.", 0);
         }
+
+        #endregion
+
+        #region Properties
+
+        /// <inheritdoc />
+        public IRequest Request { get; set; }
+        /// <inheritdoc />
+        public IHttpResultFactory ResultFactory { get; set; }
 
         #endregion
 
@@ -142,7 +152,7 @@ namespace IsoContainerPlayback
                         // The file exists, so we'll grab a stream to it and return it. However, we'll wrap it in an OnDisposeStream
                         // so that when the stream is disposed of, the underlying UdfReader and FileStream are also disposed of.
                         _logger.Info("File exists - creating stream...");
-                        return new OnDisposeStream(isoReader.OpenFile(request.Filename, FileMode.Open), () =>
+                        var stream = new OnDisposeStream(isoReader.OpenFile(request.Filename, FileMode.Open), () =>
                         {
                             // When this stream is diposed of, also dispose of our UdfReader and underlying FileStream.
                             _logger.Info("Stream disposing - cleaning up...");
@@ -153,6 +163,9 @@ namespace IsoContainerPlayback
                             _logger.Info("Disposing of ISO FileStream...");
                             isoStream.Dispose();
                         });
+
+                        // Use ResultFactory to return the stream.
+                        return ResultFactory.GetResult(Request, stream);
                     }
                 }
             }
