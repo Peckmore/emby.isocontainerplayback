@@ -39,7 +39,7 @@ namespace IsoContainerPlayback
         /// </summary>
         /// <param name="request">The directory to query, and the ISO to query it from.</param>
         /// <returns>A list of <see cref="IsoDirectoryEntryInfo" /> objects for each entry within the directory, if it exists; otherwise
-        /// <see langword="null"/>.</returns>
+        /// <see langword="null" />.</returns>
         public object Get(GetIsoDirectory request)
         {
             _logger.Info($"Directory listing for directory `{request.DirectoryPath}` requested from ISO '{request.IsoPath}'...");

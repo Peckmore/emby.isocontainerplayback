@@ -34,10 +34,10 @@ namespace IsoContainerPlayback
         #region Methods
 
         /// <summary>
-        /// Returns an <see cref="OnDisposeStream"/> for the requested file from within the specified ISO.
+        /// Returns an <see cref="OnDisposeStream" /> for the requested file from within the specified ISO.
         /// </summary>
         /// <param name="request">The file to open, and the ISO to open it from.</param>
-        /// <returns>An <see cref="OnDisposeStream"/> for the requested file, if it exists; otherwise <see langword="null"/>.</returns>
+        /// <returns>An <see cref="OnDisposeStream" /> for the requested file, if it exists; otherwise <see langword="null" />.</returns>
         public object Get(GetIsoFile request)
         {
             _logger.Info($"File `{request.Filename}` requested from ISO '{request.IsoPath}'...", 0);
