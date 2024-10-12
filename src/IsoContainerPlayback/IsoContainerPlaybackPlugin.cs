@@ -35,13 +35,13 @@ namespace IsoContainerPlayback
         {
             _logger = logManager.GetLogger(Name);
 
-            _logger.Info($"{Name} plugin is loading...", 0);
+            _logger.Info($"{Name} plugin is loading");
 
             // We need to setup DiscUtils to register Disc support.
-            _logger.Info($"Registering DiscUtils ISO support...", 0);
+            _logger.Info($"Registering DiscUtils ISO support");
             DiscUtils.Setup.SetupHelper.RegisterAssembly(ReflectionHelper.GetAssembly(typeof(Disc)));
 
-            _logger.Info($"{Name} plugin is loaded", 0);
+            _logger.Info($"{Name} plugin is loaded");
         }
 
         #endregion
@@ -72,7 +72,7 @@ namespace IsoContainerPlayback
         /// <inheritdoc/>
         public override void OnUninstalling()
         {
-            _logger.Info($"{Name} plugin is getting uninstalled.", 0);
+            _logger.Info($"{Name} plugin is being uninstalled");
             base.OnUninstalling();
         }
 
