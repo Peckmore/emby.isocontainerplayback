@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsoContainerPlayback", "Iso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsoContainerPlayback.Tests", "IsoContainerPlayback.Tests\IsoContainerPlayback.Tests.csproj", "{1F2559A2-F7C1-455B-B876-D1CFE54932F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsoContainerPlayback.TestClient", "IsoContainerPlayback.TestClient\IsoContainerPlayback.TestClient.csproj", "{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsoContainerPlayback.DebugApp", "IsoContainerPlayback.DebugApp\IsoContainerPlayback.DebugApp.csproj", "{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +33,14 @@ Global
 		{1F2559A2-F7C1-455B-B876-D1CFE54932F6}.Release_Emby|Any CPU.Build.0 = Release|Any CPU
 		{1F2559A2-F7C1-455B-B876-D1CFE54932F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F2559A2-F7C1-455B-B876-D1CFE54932F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Debug_Emby|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Debug_Emby|Any CPU.Build.0 = Debug|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Release_Emby|Any CPU.ActiveCfg = Release|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Release_Emby|Any CPU.Build.0 = Release|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC3FBAC6-FB2A-4845-9115-DF85CBF7CE48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Debug_Emby|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Debug_Emby|Any CPU.Build.0 = Debug|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Release_Emby|Any CPU.ActiveCfg = Release|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Release_Emby|Any CPU.Build.0 = Release|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA31564A-39F4-4FE7-970B-06A1C9B95B4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

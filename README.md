@@ -1,45 +1,29 @@
 # IsoContainerPlayback plugin for Emby
-The **IsoContainerPlayback** plugin will hopefully allow for **Emby** to play videos that are stored inside ISO images of BluRay, DVD, and VideoCD discs.
+The **IsoContainerPlayback** plugin will hopefully allow for **Emby** to play videos that are stored within ISO images of BluRay and DVD discs.
 
 **Note:** At this time this plugin is incomplete, and cannot operate without potential support within **Emby** server.
 
 ## Projects
-The solution consists of the following proejcts:
+The solution consists of the following projects:
 
 - **IsoContainerPlayback**
-- **IsoContainerPlayback.TestClient**
+- **IsoContainerPlayback.DebugApp**
 - **IsoContainerPlayback.Tests**
 
 ### IsoContainerPlayback
-This is the **Emby** plugin itself. It consists of the plugin code (to interface with **Emby** server), and a class called `IsoStream` (and the derived classes `BluRayIsoStream`, `DvdIsoStream`, and `VideoCdIsoStream`), which provide the core functionality of streaming a video from the contents of an ISO.
+This is the **Emby** plugin itself. It consists of API endpoints to allow Emby to retrieve directory listings from an ISO, or open a `Stream` to a file within an ISO.
 
-`IsoStream` (and it's derivatives) handle the task of opening the files from within the specified ISO and presenting them as a single .Net `Stream`. The goal is for this stream to be used to allow for the playback of video from within an ISO.
+Any files opened from within an ISO are wrapped in an `OnDisposeStream`, which ensures that underlying objects are also disposed of when a stream is disposed.
 
-**Note:** Whilst `IsoStream` is complete and working, the actual **Emby** plugin code is still work-in-progress. The plugin will correctly register itself with **Emby** server, and there are initial attempts at exposing API endpoints, but these still need more work to make them useful.
+**Note:** The plugin is still work-in-progress. The plugin will correctly register itself with **Emby** server, but the API endpoints may still need further work.
 
 This project also includes the source to any required 3rd-party libraries, as plugins can only access framework libraries and the **Emby** SDK.
 
-### IsoPlayback.TestClient
-This is a WinForms project that uses an embedded **VLC** player to try and prove and test the `IsoStream` implementations within the **IsoContainerPlayback** project.
+### IsoContainerPlayback.DebugApp
+A basic console app, used for test and debugging purposes.
 
-The app will load a specified ISO using `IsoStream`, and then pass the stream to the embedded **VLC** player to play using the following code:
-
-```
-IsoStream isoStream;
-
-// Load an iso into isoStream
-
-videoView.MediaPlayer.Play(new Media(_libVlc, new StreamMediaInput(isoStream)));
-```
-
-If the video is found on the ISO it should begin to play, as shown below:
-
-![IsoContainerPlayback.TestClient](resources/images/testclient.png)
-
-This demonstrates that `IsoStream` should be usable to play a video from within an ISO.
-
-### IsoContainPlayback.Tests
-A series of tests to try and validate that the `IsoStream` implementations function correctly.
+### IsoContainerPlayback.Tests
+Currently empty, but will contain unit tests once the plugin is developed further.
 
 ## Acknowldgements
 This project is made possible through the use of the following open source projects.
@@ -48,11 +32,3 @@ This project is made possible through the use of the following open source proje
 [Project Homepage](https://github.com/DiscUtils/DiscUtils)
 
 **DiscUtils** is a .NET library to read and write ISO files and Virtual Machine disk files (VHD, VDI, XVA, VMDK, etc). **DiscUtils** is developed in C# with no native code (or P/Invoke).
-
-### BDInfo
-[Project Homepage](https://github.com/UniqProject/BDInfo)
-
-The **BDInfo** tool was designed to collect video and audio technical specifications from Blu-ray movie discs, including:
-- Disc Size
-- Playlist File Contents
-- Stream Codec and Bitrate Details

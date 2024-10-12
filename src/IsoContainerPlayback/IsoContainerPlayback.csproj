@@ -4,9 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>IsoContainerPlayback</RootNamespace>
     <Description>ISO Container Playback</Description>
-    <PackageTags>emby;plugin;pms;media;server;iso;uhd;4k;bluray;dvd;videocd;vcd</PackageTags>
+    <PackageTags>emby;plugin;pms;media;server;iso;uhd;4k;bluray;dvd</PackageTags>
     <Authors>Simon Peckmore</Authors>
-    <Version>0.4</Version>
+    <Version>0.5</Version>
     <Configurations>Debug;Release;Debug_Emby;Release_Emby</Configurations>
   </PropertyGroup>
 	

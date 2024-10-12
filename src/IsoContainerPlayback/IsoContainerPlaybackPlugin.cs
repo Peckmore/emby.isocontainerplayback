@@ -13,9 +13,16 @@ namespace IsoContainerPlayback
     /// </summary>
     public class IsoContainerPlaybackPlugin : BasePlugin, IHasThumbImage
     {
+        #region Constants
+
+        // Define a temporary hardcoded path for the ISO file we'll work with until we switch it to be dynamic.
+        public const string IsoPath = @"c:\temp\bluray.iso";
+
+        #endregion
+
         #region Fields
 
-        private readonly Guid _id = new Guid("CD84A2F5-C01E-464A-8C48-3A407761034F");
+        private readonly Guid _id = new Guid("CD84A2F5-C01E-464A-8C48-3A407761034F"); // Do not change
         private readonly ILogger _logger;
 
         #endregion
@@ -42,7 +49,7 @@ namespace IsoContainerPlayback
         #region Properties
 
         /// <inheritdoc/>
-        public override string Description => "Allows for the playback of videos stored within Blu-Ray, DVD, and VideoCD ISO files.";
+        public override string Description => "Allows for the playback of videos stored within Blu-Ray and DVD ISO files.";
         /// <inheritdoc/>
         public override Guid Id => _id;
         /// <inheritdoc/>
