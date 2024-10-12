@@ -1,5 +1,6 @@
 ﻿using MediaBrowser.Controller.Net;
 using MediaBrowser.Model.Services;
+using System.Collections.Generic;
 
 namespace IsoContainerPlayback
 {
@@ -7,7 +8,7 @@ namespace IsoContainerPlayback
     /// Represents the API endpoint for retrieving a directory listing for a directory within an ISO.
     /// </summary>
     [Route("/Iso/GetDirectory", "GET")]
-    public class GetIsoDirectory
+    public class GetIsoDirectory : IReturn<IList<IsoDirectoryEntryInfo>>
     {
         #region Properties
 

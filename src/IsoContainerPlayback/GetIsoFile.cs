@@ -1,5 +1,6 @@
 ﻿using MediaBrowser.Controller.Net;
 using MediaBrowser.Model.Services;
+using System.IO;
 
 namespace IsoContainerPlayback
 {
@@ -7,7 +8,7 @@ namespace IsoContainerPlayback
     /// Represents the API endpoint for reading a file from within an ISO.
     /// </summary>
     [Route("/Iso/GetFile", "GET")]
-    public class GetIsoFile
+    public class GetIsoFile : IReturn<Stream>
     {
         #region Properties
 
