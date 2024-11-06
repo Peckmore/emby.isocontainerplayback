@@ -25,7 +25,7 @@ A basic console app, used for test and debugging purposes.
 ### IsoContainerPlayback.Tests
 Currently empty, but will contain unit tests once the plugin is developed further.
 
-## Acknowldgements
+## Acknowledgements
 This project is made possible through the use of the following open source projects.
 
 ### DiscUtils
