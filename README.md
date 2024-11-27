@@ -1,7 +1,9 @@
 # IsoContainerPlayback plugin for Emby
 The **IsoContainerPlayback** plugin will hopefully allow for **Emby** to play videos that are stored within ISO images of BluRay and DVD discs.
 
-**Note:** At this time this plugin is incomplete, and cannot operate without potential support within **Emby** server.
+**Note:** At this time this plugin is incomplete, and cannot operate without additional support within **Emby** server.
+
+Progress for this plugin can be tracked on the [Emby forums](https://emby.media/community/index.php?/topic/130937-iso-support-as-a-folder-not-iso-playback/).
 
 ## Projects
 The solution consists of the following projects:
